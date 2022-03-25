@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="createObservable.js"></script>
+  </head>
+  <body>
+      <div id="count">0</div>
+      <button id="inc">+</button>
+      <button id="dec">-</button>
+      <script defer>
+          const observer=createObserable();
+          function CallbackFn(count){
+              document.getElementById("count").innerText =count;
+          }
+          observer.subscribe(CallbackFn);
+
+          document.getElementById("inc").addEventListener("click", function(){
+              observer.broadcast(parseInt(document.getElementById("count").innerText,10)+1);
+          });
+          document.getElementById("dec").addEventListener("click", function(){
+              observer.broadcast(parseInt(document.getElementById("count").innerText,10)-1);
+          });
+      </script>
+    </div>
+  </body>
+</html>
