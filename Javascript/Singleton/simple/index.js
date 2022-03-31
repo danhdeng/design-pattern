@@ -1,0 +1,3 @@
+require('./setConfig');
+
+require('./getConfig');
